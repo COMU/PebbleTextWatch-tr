@@ -1,10 +1,10 @@
 {
-  "uuid": "496e04ad-132a-48ab-b165-7ff4a99872d2",
-  "shortName": "TextWatch",
-  "longName": "TextWatch",
-  "companyName": "Wip Interactive",
-  "versionCode": 2,
-  "versionLabel": "2.0.0",
+  "uuid": "0f9f49a2-7bcd-4b1a-b34e-1e4a9d84f225",
+  "shortName": "PebbleTextWatch tr",
+  "longName": "PebbleTextWatch tr",
+  "companyName": "Kripton",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
   "watchapp": {
     "watchface": true
   },
@@ -17,9 +17,9 @@
         "file": "fonts/gotham_light_31.ttf"
       },
       {
-        "type": "font",
-        "name": "FONT_GOTHAM_BOLD_36",
-        "file": "fonts/gotham_bold_36.ttf"
+	"type": "font",
+	"name": "FONT_GOTHAM_BOLD_36",
+	"file": "fonts/gotham_bold_36.ttf"
       }
     ]
   }

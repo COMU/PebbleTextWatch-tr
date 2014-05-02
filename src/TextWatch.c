@@ -1,5 +1,5 @@
 #include "pebble.h"
-#include "num2words-en.h"
+#include "num2words-tr.h"
 
 #define DEBUG 1
 #define BUFFER_SIZE 44
