@@ -8,4 +8,4 @@ Metin değiştirme animasyonunu bu linkten izleyebilirsiniz: http://www.youtube.
 Compiled build: https://drive.google.com/file/d/0B__N7bqwXMQpTlpRZ2h0TDRCSnc/edit?usp=sharing
 
 Screenshot:  
-![Text watch screenshot](https://raw.github.com/aybuke/denemelerim/master/pebble.jpg)
+![Text watch screenshot](https://raw.github.com/pebble-tr/PebbleTextWatch-tr/master/pebble.jpg)
