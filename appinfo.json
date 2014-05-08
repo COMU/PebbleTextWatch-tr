@@ -13,13 +13,13 @@
     "media": [
       {
         "type": "font",
-        "name": "FONT_GOTHAM_LIGHT_31",
-        "file": "fonts/gotham_light_31.ttf"
+        "name": "FONT_LIGHT_40",
+        "file": "fonts/light_40.ttf"
       },
       {
 	"type": "font",
-	"name": "FONT_GOTHAM_BOLD_36",
-	"file": "fonts/gotham_bold_36.ttf"
+	"name": "FONT_BOLD_42",
+	"file": "fonts/bold_42.ttf"
       }
     ]
   }
