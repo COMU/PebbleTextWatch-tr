@@ -7,7 +7,7 @@ static const char* const ONES[] = {
   "iki",
   "üç",
   "dört",
-  "bes",
+  "beş",
   "altı",
   "yedi",
   "sekiz",
@@ -20,7 +20,7 @@ static const char* const TEENS[] ={
   "oniki",
   "onüç",
   "ondört",
-  "onbes",
+  "onbeş",
   "onaltı",
   "onyedi",
   "onsekiz",
@@ -34,8 +34,8 @@ static const char* const TENS[] = {
   "otuz",
   "kırk",
   "elli",
-  "altmıs",
-  "yetmis",
+  "altmış",
+  "yetmiş",
   "seksen",
   "doksan"
 };
