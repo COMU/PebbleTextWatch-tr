@@ -1,4 +1,4 @@
-Pebble Text Watch
+Pebble Turkish Text Watch
 =================
 
 TextWatch watchface'inin Türkçeleştirilmiş halidir.
