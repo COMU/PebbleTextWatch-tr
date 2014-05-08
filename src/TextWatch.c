@@ -194,8 +194,8 @@ static void init() {
   window_set_background_color(window, GColorBlack);
 
 	// Custom fonts
-	lightFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_GOTHAM_LIGHT_31));
-	boldFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_GOTHAM_BOLD_36));
+	lightFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_LIGHT_40));
+	boldFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_BOLD_42));
 
 	// 1st line layers
 	line1.currentLayer = text_layer_create(GRect(0, 18, 144, 50));
