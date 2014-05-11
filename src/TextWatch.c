@@ -107,7 +107,11 @@ static void display_time(struct tm *t)
 	char textLine2[BUFFER_SIZE];
 	char textLine3[BUFFER_SIZE];
 	
-	time_to_3words(t->tm_hour, t->tm_min, textLine1, textLine2, textLine3, BUFFER_SIZE);
+	if(t->tm_min==0){
+                time_to_3words(t->tm_hour, t->tm_min, textLine2, textLine1, textLine3, BUFFER_SIZE);
+        }else{
+                time_to_3words(t->tm_hour, t->tm_min, textLine1, textLine2, textLine3, BUFFER_SIZE);
+        }
 	
 	if (needToUpdateLine(&line1, line1Str, textLine1)) {
 		updateLineTo(&line1, line1Str, textLine1);	
@@ -123,7 +127,11 @@ static void display_time(struct tm *t)
 // Update screen without animation first time we start the watchface
 static void display_initial_time(struct tm *t)
 {
-	time_to_3words(t->tm_hour, t->tm_min, line1Str[0], line2Str[0], line3Str[0], BUFFER_SIZE);
+	if(t->tm_min==0){
+                time_to_3words(t->tm_hour, t->tm_min, line2Str[0], line1Str[0], line3Str[0], BUFFER_SIZE);
+        }else{
+                time_to_3words(t->tm_hour, t->tm_min, line1Str[0], line2Str[0], line3Str[0], BUFFER_SIZE);
+        }
 	
 	text_layer_set_text(line1.currentLayer, line1Str[0]);
 	text_layer_set_text(line2.currentLayer, line2Str[0]);
