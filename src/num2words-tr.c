@@ -2,7 +2,7 @@
 #include "string.h"
 
 static const char* const ONES[] = {
-  "",
+  "saat",
   "bir",
   "iki",
   "üç",
