@@ -1,10 +1,13 @@
 #include "pebble.h"
 #include "num2words-tr.h"
+#include "battbar.h"
 
 #define DEBUG 1
 #define BUFFER_SIZE 44
 
 static Window *window;
+
+static TextLayer *text_layer_percentage;
 
 typedef struct {
 	TextLayer *currentLayer;
@@ -242,12 +245,22 @@ static void init() {
 	window_set_click_config_provider(window, (ClickConfigProvider) click_config_provider);
 	#endif
 
+	//Options for battery status bar
+        BBOptions options;
+        options.position = BATTBAR_POSITION_TOP;
+        options.direction = BATTBAR_DIRECTION_DOWN;
+        options.color = BATTBAR_COLOR_WHITE;
+        options.isWatchApp = true;
+        SetupBattBar(options, window_layer); /* Setup the display, subscribe to battery service */
+        DrawBattBar(); /* Initial display of the bar */
+
   tick_timer_service_subscribe(MINUTE_UNIT, handle_minute_tick);
 }
 
 static void deinit() {
 	tick_timer_service_unsubscribe();
 	window_destroy(window);
+        text_layer_destroy(text_layer_percentage);
 }
 
 int main(void) {
