@@ -4,7 +4,7 @@
   "longName": "PebbleTextWatch tr",
   "companyName": "Kripton",
   "versionCode": 1,
-  "versionLabel": "1.2.0",
+  "versionLabel": "1.3.0",
   "watchapp": {
     "watchface": true
   },
@@ -21,6 +21,36 @@
 	"type": "font",
 	"name": "FONT_BOLD_42",
 	"file": "fonts/bold_42.ttf"
+      },
+      {
+        "type": "png",
+        "name": "CHARGING_LINE_LONG",
+        "file": "images/charging_long.png"
+      },
+      {
+        "type": "png",
+        "name": "CHARGING_LINE_FULL",
+        "file": "images/charging_tall.png"
+      },
+      {
+        "type": "png",
+        "name": "WHITE_LINE_FULL",
+        "file": "images/white_line_tall.png"
+      },
+      {
+        "type": "png",
+        "name": "WHITE_LINE_LONG",
+        "file": "images/white_line_long.png"
+      },
+      {
+        "type": "png",
+        "name": "BLACK_LINE_LONG",
+        "file": "images/black_line_long.png"
+      },
+      {
+        "type": "png",
+        "name": "BLACK_LINE_FULL",
+        "file": "images/black_line_tall.png"
       }
     ]
   }
