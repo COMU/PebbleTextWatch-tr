@@ -1,7 +1,7 @@
 #include "pebble.h"
 #include "num2words-tr.h"
 #include "battbar.h"
-
+#include "bluetooth.h"
 #define DEBUG 1
 #define BUFFER_SIZE 44
 
@@ -253,7 +253,9 @@ static void init() {
         options.isWatchApp = true;
         SetupBattBar(options, window_layer); /* Setup the display, subscribe to battery service */
         DrawBattBar(); /* Initial display of the bar */
-
+  
+  //For bluetooth
+  bluetooth_init(window_layer);
   tick_timer_service_subscribe(MINUTE_UNIT, handle_minute_tick);
 }
 
@@ -261,6 +263,7 @@ static void deinit() {
 	tick_timer_service_unsubscribe();
 	window_destroy(window);
         text_layer_destroy(text_layer_percentage);
+	bluetooth_deinit();
 }
 
 int main(void) {
