@@ -23,6 +23,11 @@
 	"file": "fonts/bold_42.ttf"
       },
       {
+        "type": "png-trans",
+        "name": "BT_ICON",
+        "file": "images/bluetooth-icon.png"
+      },
+      {
         "type": "png",
         "name": "CHARGING_LINE_LONG",
         "file": "images/charging_long.png"
