@@ -253,9 +253,10 @@ static void init() {
         options.isWatchApp = true;
         SetupBattBar(options, window_layer); /* Setup the display, subscribe to battery service */
         DrawBattBar(); /* Initial display of the bar */
+	
+	//For bluetooth
+        bluetooth_init(window_layer);
   
-  //For bluetooth
-  bluetooth_init(window_layer);
   tick_timer_service_subscribe(MINUTE_UNIT, handle_minute_tick);
 }
 
