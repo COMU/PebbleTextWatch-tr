@@ -14,8 +14,8 @@
     "media": [
       {
         "type": "font",
-        "name": "FONT_LIGHT_40",
-        "file": "fonts/light_40.ttf"
+        "name": "FONT_LIGHT_42",
+        "file": "fonts/light_42.ttf"
       },
       {
 	"type": "font",
