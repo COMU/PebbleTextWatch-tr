@@ -14,7 +14,7 @@ static void handle_bt_conn(bool connected) {
 
 void bluetooth_init(Layer *window_layer) {
   bt_icon = gbitmap_create_with_resource(RESOURCE_ID_BT_ICON_BLACK);
-  image_bt_icon_layer = bitmap_layer_create(GRect(3, 3, 15, 15));
+  image_bt_icon_layer = bitmap_layer_create(GRect(130, 10, 10, 10));
   bitmap_layer_set_bitmap(image_bt_icon_layer, bt_icon);
   bitmap_layer_set_compositing_mode(image_bt_icon_layer, GCompOpAssign);
   layer_add_child(window_layer, bitmap_layer_get_layer(image_bt_icon_layer));
