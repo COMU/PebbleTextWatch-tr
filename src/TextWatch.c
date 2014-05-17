@@ -205,24 +205,24 @@ static void init() {
   window_set_background_color(window, GColorBlack);
 
 	// Custom fonts
-	lightFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_LIGHT_40));
+	lightFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_LIGHT_42));
 	boldFont = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_BOLD_42));
 
 	// 1st line layers
-	line1.currentLayer = text_layer_create(GRect(0, 18, 144, 50));
-	line1.nextLayer = text_layer_create(GRect(144, 18, 144, 50));
+	line1.currentLayer = text_layer_create(GRect(0, 16, 144, 50));
+	line1.nextLayer = text_layer_create(GRect(144, 16, 144, 50));
 	configureBoldLayer(line1.currentLayer);
 	configureBoldLayer(line1.nextLayer);
 
 	// 2nd layers
-	line2.currentLayer = text_layer_create(GRect(0, 55, 144, 50));
-	line2.nextLayer = text_layer_create(GRect(144, 55, 144, 50));
+	line2.currentLayer = text_layer_create(GRect(0, 56, 144, 50));
+	line2.nextLayer = text_layer_create(GRect(144, 56, 144, 50));
 	configureLightLayer(line2.currentLayer);
 	configureLightLayer(line2.nextLayer);
 
 	// 3rd layers
-	line3.currentLayer = text_layer_create(GRect(0, 85, 144, 50));
-	line3.nextLayer = text_layer_create(GRect(144, 85, 144, 50));
+	line3.currentLayer = text_layer_create(GRect(0, 95, 144, 50));
+	line3.nextLayer = text_layer_create(GRect(144, 95, 144, 50));
 	configureLightLayer(line3.currentLayer);
 	configureLightLayer(line3.nextLayer);
 
