@@ -4,7 +4,7 @@
   "longName": "PebbleTextWatch tr",
   "companyName": "Kripton",
   "versionCode": 2,
-  "versionLabel": "2.0",
+  "versionLabel": "2.0.1",
   "watchapp": {
     "watchface": true
   },
