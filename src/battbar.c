@@ -35,7 +35,7 @@ void DrawBattBar() {
 void RefreshBattBar(BatteryChargeState charge_state) {
 	int height = 168; // Without Title Bar
 	int width = 144;
-	int bar_size = 2;
+	int bar_size = 5;
 	double segment = 1.68;
 	if(options.isWatchApp) {
 		height = 152; // With Title Bar
