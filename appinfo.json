@@ -9,7 +9,9 @@
     "watchface": true
   },
   "capabilities":["configurable"],
-  "appKeys": {},
+  "appKeys": {
+	"invert": 0
+  },
   "resources": {
     "media": [
       {
