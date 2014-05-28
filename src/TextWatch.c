@@ -4,10 +4,18 @@
 #include "bluetooth.h"
 #define DEBUG 1
 #define BUFFER_SIZE 44
+#define SETTINGS_KEY 99
 
 static Window *window;
 
 static TextLayer *text_layer_percentage;
+static InverterLayer *inverter_layer;
+
+static int valueRead, valueWritten;
+static AppSync sync;
+static uint8_t sync_buffer[128];
+
+enum { INVERT_KEY = 0x0, NUM_CONFIG_KEYS = 0x1 };
 
 typedef struct {
 	TextLayer *currentLayer;
@@ -16,6 +24,13 @@ typedef struct {
 	PropertyAnimation *nextAnimation;
 } Line;
 
+typedef struct persist {
+        int Invert;                  // Invert colours (0/1)
+} __attribute__((__packed__)) persist;
+
+persist settings = {
+        .Invert = 0
+};
 
 static Line line1;
 static Line line2;
@@ -199,7 +214,52 @@ static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   display_time(tick_time);
 }
 
+// Invert Layer
+static void remove_invert() {
+    if (inverter_layer != NULL) {
+                layer_remove_from_parent(inverter_layer_get_layer(inverter_layer));
+                inverter_layer_destroy(inverter_layer);
+                inverter_layer = NULL;
+    }
+}
+
+static void set_invert() {
+    if (!inverter_layer) {
+                inverter_layer = inverter_layer_create(GRect(0, 0, 144, 168));
+                layer_add_child(window_get_root_layer(window), inverter_layer_get_layer(inverter_layer));
+                layer_mark_dirty(inverter_layer_get_layer(inverter_layer));
+    }
+}
+
+static void sync_tuple_changed_callback(const uint32_t key, const Tuple * new_tuple, const Tuple * old_tuple, void *context) {
+    // APP_LOG(APP_LOG_LEVEL_DEBUG, "TUPLE! %lu : %d", key, new_tuple->value->uint8);
+        if(new_tuple==NULL || new_tuple->value==NULL) {
+                return;
+        }
+        switch (key) {
+                case INVERT_KEY:
+                        remove_invert();
+                        settings.Invert = new_tuple->value->uint8;
+                        if (settings.Invert) {
+                                set_invert();
+                        }
+                        break;
+        }
+}
+
+static void loadPersistentSettings() {
+        valueRead = persist_read_data(SETTINGS_KEY, &settings, sizeof(settings));
+}
+
+static void savePersistentSettings() {
+        valueWritten = persist_write_data(SETTINGS_KEY, &settings, sizeof(settings));
+}
+
+
 static void init() {
+
+  loadPersistentSettings();
+
   window = window_create();
   window_stack_push(window, true);
   window_set_background_color(window, GColorBlack);
@@ -256,15 +316,27 @@ static void init() {
 	
 	//For bluetooth
         bluetooth_init(window_layer);
+
+	Tuplet initial_values[NUM_CONFIG_KEYS] = {
+                TupletInteger(INVERT_KEY, settings.Invert)
+        };
+
+        app_message_open(128, 128);
+        app_sync_init(&sync, sync_buffer, sizeof(sync_buffer), initial_values,
+                        ARRAY_LENGTH(initial_values), sync_tuple_changed_callback, NULL, NULL);
+
   
   tick_timer_service_subscribe(MINUTE_UNIT, handle_minute_tick);
 }
 
 static void deinit() {
+        savePersistentSettings();
+        app_sync_deinit(&sync);
 	tick_timer_service_unsubscribe();
 	window_destroy(window);
         text_layer_destroy(text_layer_percentage);
 	bluetooth_deinit();
+	inverter_layer_destroy(inverter_layer);
 }
 
 int main(void) {
